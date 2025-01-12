@@ -1,0 +1,17 @@
+# Usa una imagen base de Node.js
+FROM node:18
+
+# Establece el directorio de trabajo en el contenedor
+WORKDIR /app
+
+# Copia los archivos de dependencias
+COPY package.json package-lock.json* ./
+
+# Instala las dependencias
+RUN npm install
+
+# Copia todo el código fuente al contenedor
+COPY . .
+
+# Comando por defecto para ejecutar en el contenedor
+CMD ["tail", "-f", "/dev/null"]

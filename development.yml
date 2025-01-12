@@ -1,0 +1,10 @@
+services:
+  portafolio:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000" # Mapea el puerto 3000 del contenedor al host
+    volumes:
+      - .:/app # Monta el código fuente del host al contenedor
+      - /app/node_modules # Asegura que node_modules sea exclusivo del contenedor
